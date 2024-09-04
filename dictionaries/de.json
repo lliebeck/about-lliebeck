@@ -1,0 +1,14 @@
+{
+  "home": {
+    "hi": "Hi,",
+    "self": "Ich bin Lukas",
+    "job": "und ich bin Softwareentwickler"
+  },
+  "appBar": {
+    "home": "Home",
+    "aboutMe": "Über mich",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  }
+}
