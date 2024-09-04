@@ -15,15 +15,9 @@ export default async function IndexPage({
     <Box>
       <Home dictionary={dictionary.home} />
       <Container fixed></Container>
-      <div
+      {/* <div
         style={{ backgroundColor: "blue", height: "500px", width: "100%" }}
-      ></div>
-      {/* <Typography>Current locale: {lang}</Typography>
-      <Typography>
-        This text is rendered on the server:{" "}
-        {dictionary["server-component"].welcome}
-      </Typography>
-      <Counter dictionary={dictionary.counter} /> */}
+      ></div> */}
     </Box>
   );
 }

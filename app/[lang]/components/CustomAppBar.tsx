@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Toolbar from "@mui/material/Toolbar";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { type getDictionary } from "../../../get-dictionary";
 import DarkModeSwitcher from "./DarkModSwitcher";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -17,7 +17,6 @@ import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { useParams, useRouter } from "next/navigation";
 
 export const CustomAppBar = ({
   dictionary,
@@ -35,18 +34,9 @@ export const CustomAppBar = ({
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(1);
-  const [hash, setHash] = useState("");
   const open = Boolean(anchorEl);
 
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const router = useRouter();
-  const params = useParams();
-
-  // useEffect(() => {
-  //   setHash(window.location.hash);
-  //   console.log("Hash:", window.location.hash);
-  // }, [params]);
 
   const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -132,17 +122,19 @@ export const CustomAppBar = ({
   return (
     <Box>
       <AppBar position="fixed">
-        <Toolbar
-          sx={{
-            "@media (min-width: 0px)": { paddingRight: 0, paddingLeft: 0 },
-          }}
-        >
-          <Box sx={{ flexGrow: 1, display: "flex" }}>
-            <Container>{isDownSm ? renderMenu() : renderTabs()}</Container>
-          </Box>
-          <LocaleSwitcher />
-          <DarkModeSwitcher />
-        </Toolbar>
+        <Container>
+          <Toolbar
+            sx={{
+              "@media (min-width: 0px)": { paddingRight: 0, paddingLeft: 0 },
+            }}
+          >
+            <Box sx={{ flexGrow: 1, display: "flex" }}>
+              {isDownSm ? renderMenu() : renderTabs()}
+            </Box>
+            <LocaleSwitcher />
+            <DarkModeSwitcher />
+          </Toolbar>
+        </Container>
       </AppBar>
     </Box>
   );
