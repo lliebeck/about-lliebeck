@@ -1,14 +1,20 @@
 {
-  "home": {
-    "hi": "Hi,",
-    "self": "I'm Lukas",
-    "job": "I'm a software developer"
-  },
   "appBar": {
     "home": "Home",
     "aboutMe": "About Me",
     "skills": "Skills",
     "projects": "Projects",
     "contact": "Contact"
-  }
+  },
+  "home": {
+    "hi": "Hi,",
+    "self": "I'm Lukas",
+    "job": "I'm a software developer"
+  },
+  "aboutMe": {
+    "greetings": "Hello,",
+    "career": "I am Lukas, 29 years old and have recently completed my dual education as a MATSE. Before I discovered my passion for software development, I completed a Bachelor's degree in Applied Geography at RWTH Aachen University. During my apprenticeship at adesso SE in the ITS Core Team (Investment Technology Solutions Core) I was able to gain wide experience with both frontend and backend technologies. A large part of my training was spent with React, NextJS and Typescript, but I also enjoy developing in C#.",
+    "hobbies": "In my free time, I like to experiment with new technologies and develop my own software projects. I am also a sport addict and enjoy spending time in nature."
+  },
+  "skills": {}
 }

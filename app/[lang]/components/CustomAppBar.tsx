@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import Toolbar from "@mui/material/Toolbar";
-import { useState } from "react";
+import { MouseEventHandler, useEffect, useMemo, useState } from "react";
 import { type getDictionary } from "../../../get-dictionary";
 import DarkModeSwitcher from "./DarkModSwitcher";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -17,23 +17,33 @@ import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { useHash } from "@/hooks/useHash";
+import { scrollToSection } from "../../../utils/utils.js";
+import { Section, sectionKeys } from "../types/section.types";
 
 export const CustomAppBar = ({
   dictionary,
 }: {
   dictionary: Awaited<ReturnType<typeof getDictionary>>["appBar"];
 }) => {
-  const pages = [
-    dictionary.home,
-    dictionary.aboutMe,
-    dictionary.skills,
-    dictionary.projects,
-    dictionary.contact,
-  ];
+  const hash = useHash();
+
+  const index = useMemo(() => {
+    const section = hash.replace("#", "");
+    const i = sectionKeys.indexOf(section as Section);
+    return i !== -1 ? i : 0;
+  }, [hash]);
+
+  useEffect(() => {
+    let section = hash.replace("#", "");
+    section = sectionKeys.includes(section as Section)
+      ? section
+      : sectionKeys[0];
+    scrollToSection(section ?? sectionKeys[0]);
+  }, [hash]);
 
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedIndex, setSelectedIndex] = useState(1);
   const open = Boolean(anchorEl);
 
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
@@ -46,16 +56,16 @@ export const CustomAppBar = ({
     event: React.MouseEvent<HTMLElement>,
     index: number
   ) => {
-    setSelectedIndex(index);
+    scrollToSection(sectionKeys[index]);
     setAnchorEl(null);
   };
 
-  const handleClose = () => {
+  const handleMenuClose = () => {
     setAnchorEl(null);
   };
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setSelectedIndex(newValue);
+  const handleTabClick = (index: number) => {
+    scrollToSection(sectionKeys[index]);
   };
 
   const renderTabs = () => {
@@ -67,11 +77,15 @@ export const CustomAppBar = ({
             backgroundColor: theme.palette.secondary.main,
           },
         }}
-        value={selectedIndex}
-        onChange={handleChange}
+        value={index}
       >
-        {pages.map((page, id) => (
-          <Tab key={page} value={id} label={page} />
+        {sectionKeys.map((key, id) => (
+          <Tab
+            key={key}
+            value={id}
+            label={dictionary[key]}
+            onClick={() => handleTabClick(id)}
+          />
         ))}
       </Tabs>
     );
@@ -80,10 +94,7 @@ export const CustomAppBar = ({
   const renderMenu = () => {
     return (
       <div>
-        <List
-          component="nav"
-          // sx={{ bgcolor: "background.paper" }}
-        >
+        <List component="nav">
           <ListItemButton
             id="lock-button"
             aria-haspopup="listbox"
@@ -92,26 +103,29 @@ export const CustomAppBar = ({
             aria-expanded={open ? "true" : undefined}
             onClick={handleClickListItem}
           >
-            <ListItemText primary="Menu" secondary={pages[selectedIndex]} />
+            <ListItemText
+              primary="Menu"
+              secondary={dictionary[hash as Section]}
+            />
           </ListItemButton>
         </List>
         <Menu
           id="lock-menu"
           anchorEl={anchorEl}
           open={open}
-          onClose={handleClose}
+          onClose={handleMenuClose}
           MenuListProps={{
             "aria-labelledby": "lock-button",
             role: "listbox",
           }}
         >
-          {pages.map((option, index) => (
+          {sectionKeys.map((option, index) => (
             <MenuItem
               key={option}
-              selected={index === selectedIndex}
+              selected={index === index}
               onClick={(event) => handleMenuItemClick(event, index)}
             >
-              {option}
+              {dictionary[option]}
             </MenuItem>
           ))}
         </Menu>

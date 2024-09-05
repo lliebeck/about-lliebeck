@@ -36,6 +36,13 @@ export function middleware(request: NextRequest) {
       "/manifest.json",
       "/favicon.ico",
       "/profile_pic_v1.jpg",
+      "/profile_pic_2.jpg",
+      "/icons/nextjs-icon.png",
+      "/icons/react-icon.png",
+      "/icons/js-icon.png",
+      "/icons/ts-icon.png",
+      "/icons/csharp-icon.png",
+      "/icons/msql-icon.png",
       // Your other files in `public`
     ].includes(pathname)
   )

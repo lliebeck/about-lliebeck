@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { type getDictionary } from "../../../get-dictionary";
+import { type getDictionary } from "../../../../get-dictionary";
 import * as THREE from "three";
 // @ts-ignore
 import NET from "vanta/dist/vanta.net.min";
@@ -57,7 +57,7 @@ export default function Home({
   }, [prevMode, theme.palette.mode, theme.palette.secondary.dark, vantaEffect]);
 
   return (
-    <Box ref={vantaRef} sx={{ height: "100vh", width: "100%" }}>
+    <Box id="home" ref={vantaRef} sx={{ height: "100vh", width: "100%" }}>
       <Container
         style={{
           display: "flex",

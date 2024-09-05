@@ -22,6 +22,9 @@ export const AppThemeProvider = ({
     let createdTheme = createTheme({
       palette: {
         mode: mode,
+        background: {
+          default: mode === "light" ? "#d4d4d4" : "#2a282a",
+        },
         primary: {
           main: "#164863",
         },
