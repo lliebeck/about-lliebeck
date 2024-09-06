@@ -13,17 +13,18 @@ type Props = {
 
 export default function AboutMe({ title, id }: Props) {
   const theme = useTheme();
+  const appBarHight = "64px";
+  const headerMargin = "24px";
 
   return (
     <Box
       id={id}
       sx={{
-        // display: "flex",
-        // justifyContent: "center",
         marginTop: 3,
         marginBottom: 3,
         borderWidth: "10px",
         borderColor: theme.palette.secondary.dark,
+        scrollMarginTop: `calc(${appBarHight} + ${headerMargin})`,
       }}
     >
       <Divider

@@ -5,6 +5,7 @@ import Box from "@mui/material/Box";
 import Home from "./components/sections/Home";
 import AboutMe from "./components/sections/AboutMe";
 import Skills from "./components/sections/Skills";
+import Footer from "./components/Footer";
 
 export default async function IndexPage({
   params: { lang },
@@ -14,7 +15,7 @@ export default async function IndexPage({
   const dictionary = await getDictionary(lang);
 
   return (
-    <Box>
+    <Box marginTop="64px">
       <Home dictionary={dictionary.home} />
       <Container>
         <AboutMe
@@ -26,9 +27,10 @@ export default async function IndexPage({
           dictionarySections={dictionary.appBar}
         />
       </Container>
-      {/* <div
-        style={{ backgroundColor: "blue", height: "500px", width: "100%" }}
-      ></div> */}
+      <Footer
+        dictionary={dictionary.skills}
+        dictionarySections={dictionary.appBar}
+      />
     </Box>
   );
 }

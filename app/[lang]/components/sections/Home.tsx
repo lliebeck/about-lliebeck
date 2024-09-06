@@ -24,6 +24,8 @@ export default function Home({
     ? "h5"
     : "h4";
 
+  const appBarHight = "64px";
+
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -62,7 +64,7 @@ export default function Home({
         style={{
           display: "flex",
           alignItems: "center",
-          height: "100vh",
+          height: `calc(100vh - ${appBarHight})`,
           justifyContent: isDownSm ? "center" : "space-between",
           flexDirection: isDownSm ? "column-reverse" : "row",
         }}

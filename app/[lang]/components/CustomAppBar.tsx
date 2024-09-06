@@ -27,19 +27,17 @@ export const CustomAppBar = ({
   dictionary: Awaited<ReturnType<typeof getDictionary>>["appBar"];
 }) => {
   const hash = useHash();
+  const section = hash.replace("#", "");
 
   const index = useMemo(() => {
-    const section = hash.replace("#", "");
     const i = sectionKeys.indexOf(section as Section);
     return i !== -1 ? i : 0;
   }, [hash]);
 
   useEffect(() => {
-    let section = hash.replace("#", "");
-    section = sectionKeys.includes(section as Section)
-      ? section
-      : sectionKeys[0];
-    scrollToSection(section ?? sectionKeys[0]);
+    scrollToSection(
+      sectionKeys.includes(section as Section) ? section : sectionKeys[0]
+    );
   }, [hash]);
 
   const theme = useTheme();
@@ -105,7 +103,7 @@ export const CustomAppBar = ({
           >
             <ListItemText
               primary="Menu"
-              secondary={dictionary[hash as Section]}
+              secondary={dictionary[section as Section]}
             />
           </ListItemButton>
         </List>
@@ -122,7 +120,7 @@ export const CustomAppBar = ({
           {sectionKeys.map((option, index) => (
             <MenuItem
               key={option}
-              selected={index === index}
+              selected={index == sectionKeys.indexOf(section as Section)}
               onClick={(event) => handleMenuItemClick(event, index)}
             >
               {dictionary[option]}

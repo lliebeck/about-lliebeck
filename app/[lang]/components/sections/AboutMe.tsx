@@ -73,6 +73,7 @@ export default function AboutMe({
           <Typography
             variant={"caption"}
             fontFamily={"monospace"}
+            marginTop={0.5}
             sx={{ display: "inline-block" }}
           >
             {dictionary.hobbies}
