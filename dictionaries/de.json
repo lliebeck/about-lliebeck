@@ -16,5 +16,10 @@
     "career": "ich bin Lukas, 29 Jahre alt und habe vor kurzem meine duale Ausbildung zum MATSE abgeschlossen. Bevor ich meine Leidenschaft für die Softwareentwicklung entdeckte, habe ich einen Bachelor in Angewandter Geographie an der RWTH Aachen absolviert. Während meiner Ausbildung bei der adesso SE im ITS Core Team (Investment Technology Solutions Core) konnte ich umfangreiche Erfahrungen sowohl mit Frontend- als auch mit Backend-Technologien sammeln. Einen großen Teil meiner Ausbildung habe ich mit React, NextJS und Typescript verbracht, wobei ich auch gerne in C# entwickle.",
     "hobbies": "In meiner Freizeit experimentiere ich gerne mit neuen Technologien und setze eigene Softwareprojekte um. Außerdem treibe ich viel Sport und verbringe gerne Zeit in der Natur."
   },
-  "skills": {}
+  "skills": {},
+  "footer": {
+    "legalNotice": "Impressum",
+    "privacyPolicy": "Datenschutzerklärung"
+  },
+  "legalNotice": {}
 }

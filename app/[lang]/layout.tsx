@@ -6,6 +6,7 @@ import { CustomAppBar } from "./components/CustomAppBar";
 import { getDictionary } from "../../get-dictionary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Footer from "./components/Footer";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -32,6 +33,7 @@ export default async function RootLayout({
           <AppThemeProvider>
             <CustomAppBar dictionary={dictionary.appBar} />
             {children}
+            <Footer />
           </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>

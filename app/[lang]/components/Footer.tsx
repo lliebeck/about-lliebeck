@@ -13,13 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function Skills({
-  dictionary,
-  dictionarySections,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["skills"];
-  dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) {
+export default function Footer({}: {}) {
   const theme = useTheme();
 
   const lightModeTextColor =
@@ -65,7 +59,7 @@ export default function Skills({
       <Box>
         <Link
           marginRight={1}
-          href="/"
+          href="/legalnotice"
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}

@@ -1,25 +1,26 @@
 "use client";
 
+import { useHash } from "@/hooks/useHash";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import Toolbar from "@mui/material/Toolbar";
-import { MouseEventHandler, useEffect, useMemo, useState } from "react";
-import { type getDictionary } from "../../../get-dictionary";
-import DarkModeSwitcher from "./DarkModSwitcher";
-import LocaleSwitcher from "./LocaleSwitcher";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { useHash } from "@/hooks/useHash";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { useTheme } from "@mui/material/styles";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Toolbar from "@mui/material/Toolbar";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
+import { type getDictionary } from "../../../get-dictionary";
 import { scrollToSection } from "../../../utils/utils.js";
 import { Section, sectionKeys } from "../types/section.types";
+import DarkModeSwitcher from "./DarkModSwitcher";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 export const CustomAppBar = ({
   dictionary,
@@ -27,7 +28,9 @@ export const CustomAppBar = ({
   dictionary: Awaited<ReturnType<typeof getDictionary>>["appBar"];
 }) => {
   const hash = useHash();
-  const section = hash.replace("#", "");
+  const pathName = usePathname();
+  const router = useRouter();
+  const section = hash?.replace("#", "");
 
   const index = useMemo(() => {
     const i = sectionKeys.indexOf(section as Section);
@@ -54,7 +57,18 @@ export const CustomAppBar = ({
     event: React.MouseEvent<HTMLElement>,
     index: number
   ) => {
-    scrollToSection(sectionKeys[index]);
+    const pathElements = pathName.split("/").filter((el) => el !== "");
+
+    // Maybe changes this case if nextjs supports a hook to listen to hash changes
+    if (pathElements.length > 1) {
+      // window.location.href = `/${pathElements[0]}#${sectionKeys[index]}`;
+      router.push(`/${pathElements[0]}`, { scroll: false });
+      setTimeout(() => {
+        window.location.hash = `#${sectionKeys[index]}`;
+      }, 500);
+    } else {
+      scrollToSection(sectionKeys[index]);
+    }
     setAnchorEl(null);
   };
 
@@ -63,7 +77,18 @@ export const CustomAppBar = ({
   };
 
   const handleTabClick = (index: number) => {
-    scrollToSection(sectionKeys[index]);
+    const pathElements = pathName.split("/").filter((el) => el !== "");
+
+    // Maybe changes this case if nextjs supports a hook to listen to hash changes
+    if (pathElements.length > 1) {
+      // window.location.href = `/${pathElements[0]}#${sectionKeys[index]}`;
+      router.push(`/${pathElements[0]}`, { scroll: false });
+      setTimeout(() => {
+        window.location.hash = `#${sectionKeys[index]}`;
+      }, 500);
+    } else {
+      scrollToSection(sectionKeys[index]);
+    }
   };
 
   const renderTabs = () => {

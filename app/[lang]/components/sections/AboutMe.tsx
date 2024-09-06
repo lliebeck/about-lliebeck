@@ -64,14 +64,14 @@ export default function AboutMe({
             {dictionary.greetings}
           </Typography>
           <Typography
-            variant={"caption"}
+            variant={"body1"}
             fontFamily={"monospace"}
             sx={{ display: "inline-block" }}
           >
             {dictionary.career}
           </Typography>
           <Typography
-            variant={"caption"}
+            variant={"body1"}
             fontFamily={"monospace"}
             marginTop={0.5}
             sx={{ display: "inline-block" }}

@@ -27,10 +27,6 @@ export default async function IndexPage({
           dictionarySections={dictionary.appBar}
         />
       </Container>
-      <Footer
-        dictionary={dictionary.skills}
-        dictionarySections={dictionary.appBar}
-      />
     </Box>
   );
 }
