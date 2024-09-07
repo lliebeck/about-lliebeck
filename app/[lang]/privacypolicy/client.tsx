@@ -60,7 +60,7 @@ export function Client({
         </Typography>
         <ul>
           {Object.entries(dictionary.logs.data).map((data) => (
-            <li>
+            <li key={data[0]}>
               <Typography
                 key={data[0]}
                 variant="body1"
