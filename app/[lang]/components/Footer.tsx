@@ -13,7 +13,11 @@ import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-export default function Footer({}: {}) {
+export default function Footer({
+  dictionary,
+}: {
+  dictionary: Awaited<ReturnType<typeof getDictionary>>["footer"];
+}) {
   const theme = useTheme();
 
   const lightModeTextColor =
@@ -64,28 +68,17 @@ export default function Footer({}: {}) {
           variant="body1"
           color={lightModeTextColor}
         >
-          Impressum
+          {dictionary.legalNotice}
         </Link>
         <Link
-          href="/"
+          href="/privacypolicy"
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
         >
-          Datenschutz
+          {dictionary.privacyPolicy}
         </Link>
       </Box>
-      {/* <Tabs
-        textColor="inherit"
-        TabIndicatorProps={{
-          style: {
-            backgroundColor: theme.palette.secondary.main,
-          },
-        }}
-      >
-        <Tab key={"impressum"} label={"Impressum"} onClick={() => {}} />
-        <Tab key={"datenschutz"} label={"Daterschutz"} onClick={() => {}} />
-      </Tabs> */}
     </Box>
   );
 }

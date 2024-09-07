@@ -33,7 +33,7 @@ export default async function RootLayout({
           <AppThemeProvider>
             <CustomAppBar dictionary={dictionary.appBar} />
             {children}
-            <Footer />
+            <Footer dictionary={dictionary.footer} />
           </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>
