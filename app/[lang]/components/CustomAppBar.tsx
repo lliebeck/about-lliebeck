@@ -35,13 +35,13 @@ export const CustomAppBar = ({
   const index = useMemo(() => {
     const i = sectionKeys.indexOf(section as Section);
     return i !== -1 ? i : 0;
-  }, [hash]);
+  }, [section]);
 
   useEffect(() => {
     scrollToSection(
       sectionKeys.includes(section as Section) ? section : sectionKeys[0]
     );
-  }, [hash]);
+  }, [section]);
 
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
