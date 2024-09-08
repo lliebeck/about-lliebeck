@@ -12,6 +12,7 @@ import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { useParams } from "next/navigation";
 
 export default function Footer({
   dictionary,
@@ -19,6 +20,7 @@ export default function Footer({
   dictionary: Awaited<ReturnType<typeof getDictionary>>["footer"];
 }) {
   const theme = useTheme();
+  const { lang } = useParams();
 
   const lightModeTextColor =
     theme.palette.mode === "light"
@@ -63,7 +65,7 @@ export default function Footer({
       <Box>
         <Link
           marginRight={1}
-          href="/legalnotice"
+          href={`/${lang}/legalnotice`}
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
@@ -71,7 +73,7 @@ export default function Footer({
           {dictionary.legalNotice}
         </Link>
         <Link
-          href="/privacypolicy"
+          href={`/${lang}/privacypolicy`}
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
