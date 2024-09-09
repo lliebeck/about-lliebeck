@@ -21,6 +21,24 @@
     "legalNotice": "Legal Notice",
     "privacyPolicy": "Privacy Policy"
   },
+  "projects": {
+    "adminShell": {
+      "title": "Admin Shell",
+      "description": "The Admin Shell is the software project I worked on the most during my time at adesso SE. It is the frontend for displaying and managing data from the Identity Manager, Session Manager and Audittrail services. At the time of my employment, the admin shell written in Angular was to be completely rebuilt in React and Next.js. I supported the senior developers and was able to help design the new application."
+    },
+    "myBattlefieldLobby": {
+      "title": "My Battlefield Lobby",
+      "description": "My Battlefield Lobby is a hobby project that was born out of a passion for the Battlefield series. With the help of the open REST API https://api.gametools.network, I have created a website that allows you to find your current game lobby and display the data of your fellow players. This allows you to quickly check whether a teammate or opponent is an obvious cheater. The application is hosted as an Azure Static Web App as a free plan."
+    },
+    "trashTracker": {
+      "title": "Trash Tracker",
+      "description": "The Trash Tracker app is used to locate littered places around the world and mark them on a map. This gives hard-working helpers the opportunity to visit these places, collect the waste and remove the marker from the map.  I had the idea for the Trash Tracker app for some time. The first prototype was realised as part of an Android course at university. Using a small .NET web api as a backend, an Android app was written that enables basic functions such as adding markers with descriptions and images and completing these tasks. Additionally, a simple authentication with .NET was integrated. Open Street Map was used for the map."
+    },
+    "timeTracker": {
+      "title": "Veda - Time Tracker",
+      "description": "VEDA used a time tracker from the Tempo plugin for its time recording in Jira. After the update to a new Jira version, however, this was no longer compatible and this resulted in the task of our university project. We wrote a desktop app for VEDA that is platform-independent and automates time tracking. The app allows users to log in with their Jira credentials using basic authentication, search and filter their tickets, track times for a selected ticket and then automatically create a work log in Jira."
+    }
+  },
   "legalNotice": {
     "title": "Legal Notice",
     "supplier": {

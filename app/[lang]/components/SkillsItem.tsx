@@ -1,11 +1,8 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
-import Container from "@mui/material/Container";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Box from "@mui/material/Box";
 import { Divider, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
 import Image from "next/image";
 
 type Props = {
@@ -15,9 +12,6 @@ type Props = {
 
 export default function SkillsItem({ title, imagePath }: Props) {
   const theme = useTheme();
-
-  const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <div>

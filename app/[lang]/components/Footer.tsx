@@ -1,17 +1,15 @@
 "use client";
 
 import { getDictionary } from "@/get-dictionary";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NextLink from "next/link";
-import Link from "@mui/material/Link";
-import IconButton from "@mui/material/IconButton";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { useParams } from "next/navigation";
 
 export default function Footer({

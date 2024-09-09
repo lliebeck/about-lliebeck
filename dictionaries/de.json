@@ -21,6 +21,24 @@
     "legalNotice": "Impressum",
     "privacyPolicy": "Datenschutz"
   },
+  "projects": {
+    "adminShell": {
+      "title": "Admin Shell",
+      "description": "Die Admin Shell ist das Softwareprojekt, an dem ich während meiner Zeit bei adesso SE am meisten gearbeitet habe. Sie ist das Frontend zur Anzeige und Verwaltung der Daten aus den Diensten Identity Manager, Session Manager und Audittrail. Zum Zeitpunkt meiner Anstellung sollte die in Angular geschriebene Admin Shell komplett neu in React und Next.js gebaut werden. Dabei unterstützte ich die Senior Entwickler und konnte die neue Anwendung mitgestalten."
+    },
+    "myBattlefieldLobby": {
+      "title": "My Battlefield Lobby",
+      "description": "My Battlefield Lobby ist ein Hobby-Projekt, das aus einer Leidenschaft für die Battlefield-Serie entstanden ist. Mit Hilfe der offenen REST-API https://api.gametools.network habe ich eine Webseite erstellt, die es ermöglicht, seine aktuelle Gamelobby zu finden und die Daten seiner Mitspieler anzuzeigen. So kann man schnell überprüfen, ob ein Mitspieler oder Gegner eventuell ein offensichtlicher Cheater ist. Die Anwendung wird als Azure Static Web App als Freeplan gehostet."
+    },
+    "trashTracker": {
+      "title": "Trash Tracker",
+      "description": "Die Trash Tracker App dient dazu, vermüllte Orte auf der Welt zu lokalisieren und auf einer Karte zu markieren. Dies gibt fleißigen Helfern die Möglichkeit, diese Orte aufzusuchen, den Müll einzusammeln und den Marker wieder von der Karte zu entfernen.  Die Idee zur Trash Tracker App hatte ich schon länger. Im Rahmen eines Android-Kurses an der Universität konnte ein erster Prototyp umgesetzt werden. Mit Hilfe einer kleinen .NET Web Api als Backend wurde eine Android App geschrieben, die die grundlegenden Funktionen wie das Hinzufügen von Markern mit Beschreibung und Bildern sowie das Abschließen dieser Aufgaben ermöglicht. Zusätzlich wurde eine einfache Authentifizierung mit .NET integriert. Für die Kartendarstellung wurde Open Street Map verwendet."
+    },
+    "timeTracker": {
+      "title": "Veda - Time Tracker",
+      "description": "Die VEDA hat für ihre Zeiterfassung in Jira einen Time Tracker des Tempo Plugins genutzt. Nach dem Update auf eine neue Jira-Version war dieser jedoch nicht mehr kompatibel und daraus ergab sich die Aufgabe unseres Uni-Projekts. Wir haben für die VEDA eine Desktop-App geschrieben, die Plattform unabhängig ist und das Timetracking automatisiert. Die App ermöglicht dem Nutzer sich über Basic Authentifizierung mit seinen Jira Credentials anzumelden, seine Tickets zu durchsuchen und zu filtern, Zeiten für ein ausgewähltes Ticket zu tracken und am Ende automatisiert einen Worklog in Jira zu erstellen."
+    }
+  },
   "legalNotice": {
     "title": "Impressum",
     "supplier": {

@@ -37,12 +37,22 @@ export function middleware(request: NextRequest) {
       "/favicon.ico",
       "/profile_pic_v1.jpg",
       "/profile_pic_2.jpg",
+      // "/icons/**",
       "/icons/nextjs-icon.png",
       "/icons/react-icon.png",
       "/icons/js-icon.png",
       "/icons/ts-icon.png",
       "/icons/csharp-icon.png",
       "/icons/msql-icon.png",
+      "/icons/electron-icon.png",
+      "/icons/kotlin-icon.png",
+      "/icons/android-icon.png",
+      "/icons/material-ui-icon.png",
+      // "/projects/**",
+      "/projects/admin_shell.png",
+      "/projects/battlefield_lobby.png",
+      "/projects/trash_tracker.png",
+      "/projects/veda_time_tracker.png",
       // Your other files in `public`
     ].includes(pathname)
   )

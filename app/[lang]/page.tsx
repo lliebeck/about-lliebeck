@@ -6,6 +6,7 @@ import Home from "./components/sections/Home";
 import AboutMe from "./components/sections/AboutMe";
 import Skills from "./components/sections/Skills";
 import Footer from "./components/Footer";
+import Projects from "./components/sections/Projects";
 
 export default async function IndexPage({
   params: { lang },
@@ -24,6 +25,10 @@ export default async function IndexPage({
         />
         <Skills
           dictionary={dictionary.skills}
+          dictionarySections={dictionary.appBar}
+        />
+        <Projects
+          dictionary={dictionary.projects}
           dictionarySections={dictionary.appBar}
         />
       </Container>
