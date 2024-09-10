@@ -1,12 +1,12 @@
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Locale } from "../../config/i18n-config";
 import { getDictionary } from "../../get-dictionary";
-import Box from "@mui/material/Box";
-import Home from "./components/sections/Home";
 import AboutMe from "./components/sections/AboutMe";
-import Skills from "./components/sections/Skills";
-import Footer from "./components/Footer";
+import Contact from "./components/sections/Contact";
+import Home from "./components/sections/Home";
 import Projects from "./components/sections/Projects";
+import Skills from "./components/sections/Skills";
 
 export default async function IndexPage({
   params: { lang },
@@ -29,6 +29,10 @@ export default async function IndexPage({
         />
         <Projects
           dictionary={dictionary.projects}
+          dictionarySections={dictionary.appBar}
+        />
+        <Contact
+          dictionary={dictionary.contact}
           dictionarySections={dictionary.appBar}
         />
       </Container>

@@ -39,7 +39,7 @@ export default function SkillsItem({ title, imagePath }: Props) {
       <Divider
         variant="fullWidth"
         sx={{
-          bgcolor: theme.palette.secondary.dark,
+          bgcolor: theme.palette.secondary.main,
           borderBottomWidth: "2px",
           borderColor: "#ffffff00",
         }}

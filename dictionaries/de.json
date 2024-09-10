@@ -39,6 +39,18 @@
       "description": "Die VEDA hat für ihre Zeiterfassung in Jira einen Time Tracker des Tempo Plugins genutzt. Nach dem Update auf eine neue Jira-Version war dieser jedoch nicht mehr kompatibel und daraus ergab sich die Aufgabe unseres Uni-Projekts. Wir haben für die VEDA eine Desktop-App geschrieben, die Plattform unabhängig ist und das Timetracking automatisiert. Die App ermöglicht dem Nutzer sich über Basic Authentifizierung mit seinen Jira Credentials anzumelden, seine Tickets zu durchsuchen und zu filtern, Zeiten für ein ausgewähltes Ticket zu tracken und am Ende automatisiert einen Worklog in Jira zu erstellen."
     }
   },
+  "contact": {
+    "name": "Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "nameRequired": "Die Angabe des Namens ist erforderlich.",
+    "emailRequired": "Die Angabe der Email ist erfoderlich.",
+    "emailIsInvalid": "Die eingegebene E-Mail-Adresse ist ungültig.",
+    "messageRequired": "Bitte hinterlassen Sie eine Nachricht.",
+    "send": "Nachricht versenden",
+    "sendSuccess": "Nachricht erfolgreich versendet",
+    "sendError": "Ein Fehler ist aufgetreten. Versuche es in wenigen Minuten erneut"
+  },
   "legalNotice": {
     "title": "Impressum",
     "supplier": {

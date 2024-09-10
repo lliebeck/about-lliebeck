@@ -39,6 +39,18 @@
       "description": "VEDA used a time tracker from the Tempo plugin for its time recording in Jira. After the update to a new Jira version, however, this was no longer compatible and this resulted in the task of our university project. We wrote a desktop app for VEDA that is platform-independent and automates time tracking. The app allows users to log in with their Jira credentials using basic authentication, search and filter their tickets, track times for a selected ticket and then automatically create a work log in Jira."
     }
   },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailIsInvalid": "Invalid email",
+    "messageRequired": "Please leave a message",
+    "send": "Send Message",
+    "sendSuccess": "Message successfully sent",
+    "sendError": "Error, please try resubmitting the form"
+  },
   "legalNotice": {
     "title": "Legal Notice",
     "supplier": {

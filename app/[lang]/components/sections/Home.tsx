@@ -46,7 +46,7 @@ export default function Home({
           scaleMobile: 1.0,
           points: 12.0,
           maxDistance: 22.0,
-          color: theme.palette.secondary.dark,
+          color: theme.palette.secondary.main,
           backgroundColor: theme.palette.mode === "dark" ? 0x2a282a : 0xd4d4d4,
         })
       );
@@ -56,7 +56,7 @@ export default function Home({
       // @ts-ignore
       if (vantaEffect) vantaEffect.destroy();
     };
-  }, [prevMode, theme.palette.mode, theme.palette.secondary.dark, vantaEffect]);
+  }, [prevMode, theme.palette.mode, theme.palette.secondary.main, vantaEffect]);
 
   return (
     <Box id="home" ref={vantaRef} sx={{ height: "100vh", width: "100%" }}>
@@ -85,7 +85,7 @@ export default function Home({
             borderRadius: "8px",
             overflow: "hidden",
             border: "2px solid",
-            borderColor: theme.palette.secondary.dark,
+            borderColor: theme.palette.secondary.main,
           }}
         >
           <Image

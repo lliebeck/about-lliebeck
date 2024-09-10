@@ -31,7 +31,7 @@ export default function Footer({
   return (
     <Box
       sx={{
-        backgroundColor: theme.palette.secondary.dark,
+        backgroundColor: theme.palette.secondary.main,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

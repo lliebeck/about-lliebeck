@@ -35,6 +35,11 @@ jobs:
         env:
           NPM_CONFIG_FORCE: true
           NPM_CONFIG_LEGACY_PEER_DEPS: true
+          SMTP_EMAIL: ${{ secrets.SMTP_EMAIL }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

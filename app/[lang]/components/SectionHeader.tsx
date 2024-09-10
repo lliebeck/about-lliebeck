@@ -23,7 +23,7 @@ export default function AboutMe({ title, id }: Props) {
         marginTop: 3,
         marginBottom: 3,
         borderWidth: "10px",
-        borderColor: theme.palette.secondary.dark,
+        borderColor: theme.palette.secondary.main,
         scrollMarginTop: `calc(${appBarHight} + ${headerMargin})`,
       }}
     >
@@ -31,7 +31,7 @@ export default function AboutMe({ title, id }: Props) {
         variant="fullWidth"
         sx={{
           "&::before, &::after": {
-            borderColor: theme.palette.secondary.dark,
+            borderColor: theme.palette.secondary.main,
             borderWidth: "2px",
           },
         }}
@@ -41,7 +41,7 @@ export default function AboutMe({ title, id }: Props) {
           sx={
             {
               // textDecoration: "underline",
-              // textDecorationColor: theme.palette.secondary.dark,
+              // textDecorationColor: theme.palette.secondary.main,
             }
           }
         >

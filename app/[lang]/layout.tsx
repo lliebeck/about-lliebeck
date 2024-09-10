@@ -1,11 +1,10 @@
 import { AppThemeProvider } from "@/config/AppThemeProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
+import { SnackbarProvider } from "notistack";
 import { i18n, type Locale } from "../../config/i18n-config";
-import { CustomAppBar } from "./components/CustomAppBar";
 import { getDictionary } from "../../get-dictionary";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import { CustomAppBar } from "./components/CustomAppBar";
 import Footer from "./components/Footer";
 
 export async function generateStaticParams() {
