@@ -3,6 +3,8 @@
 import { getDictionary } from "@/get-dictionary";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import SendIcon from "@mui/icons-material/Send";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
@@ -58,6 +60,14 @@ export default function Footer({
           target="_blank"
         >
           <LinkedInIcon />
+        </IconButton>
+        <IconButton
+          LinkComponent={NextLink}
+          href="mailto:job@lliebeck.de"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <EmailIcon />
         </IconButton>
       </Box>
       <Box>

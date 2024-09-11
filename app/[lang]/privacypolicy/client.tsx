@@ -96,9 +96,15 @@ export function Client({
       {renderParagraph(Object.entries(dictionary.information))}
       {renderParagraph(Object.entries(dictionary.encryption))}
       {renderLogs()}
+      {renderParagraph(Object.entries(dictionary.contactForm))}
       <Typography>
         {dictionary.source}
-        <Link href="https://www.hub24.de" component={NextLink} variant="body1">
+        <Link
+          href="https://www.hub24.de"
+          component={NextLink}
+          variant="body1"
+          color="secondary"
+        >
           Herold Unternehmensberatung
         </Link>
       </Typography>
