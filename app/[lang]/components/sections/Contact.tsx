@@ -11,7 +11,12 @@ import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SectionHeader from "../SectionHeader";
-import { EmailTemplateProps } from "../EmaiTemplate";
+
+type ContactData = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 const emailReg = new RegExp(
   "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
@@ -24,23 +29,22 @@ export default function Contact({
   dictionary: Awaited<ReturnType<typeof getDictionary>>["contact"];
   dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
 }) {
-  const { control, handleSubmit, formState, reset } =
-    useForm<EmailTemplateProps>({
-      defaultValues: {
-        name: "",
-        email: "",
-        message: "",
-      },
-      mode: "all",
-      reValidateMode: "onSubmit",
-      criteriaMode: "all",
-    });
+  const { control, handleSubmit, formState, reset } = useForm<ContactData>({
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    mode: "all",
+    reValidateMode: "onSubmit",
+    criteriaMode: "all",
+  });
   const theme = useTheme();
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => console.log(formState.isValid), [formState.isValid]);
 
-  const onSubmit: SubmitHandler<EmailTemplateProps> = async (data) => {
+  const onSubmit: SubmitHandler<ContactData> = async (data) => {
     if (!formState.isValid) {
       enqueueSnackbar("Please fill out the form", {
         variant: "error",
