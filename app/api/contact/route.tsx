@@ -31,11 +31,12 @@ export async function POST(request: NextRequest) {
       to: myEmail,
       replyTo: email,
       subject: `${name} has contacted you via your portfolio`,
-      html: `<div>
-              <h1>${name} wants to get in touch with you!</h1>
-              <h3> You can reach him/her at this email: ${email}</h3>
-              <h3>Him/her left you a message:</h3>
-              <p>"${message}"</p>
+      html: `
+            <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+              <h1 style="color: #007BFF;">${name} wants to get in touch with you!</h1>
+              <h3>You can reach ${name} by email at <a href="mailto:${email}" style="color: #007BFF;">${email}</a></h3>
+              <h3>He/She left you the following message:</h3>
+              <p style="background-color: #f9f9f9; padding: 15px; border-left: 5px solid #007BFF; white-space: pre-wrap;">"${message}"</p>
             </div>`,
     });
 
