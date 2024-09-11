@@ -49,7 +49,8 @@
     "messageRequired": "Please leave a message",
     "send": "Send Message",
     "sendSuccess": "Message successfully sent",
-    "sendError": "Error, please try resubmitting the form"
+    "sendError": "Error, please try resubmitting the form",
+    "sendRateLimitError": "Too many requests. Please try again later."
   },
   "legalNotice": {
     "title": "Legal Notice",

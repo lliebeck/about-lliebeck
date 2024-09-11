@@ -49,7 +49,8 @@
     "messageRequired": "Bitte hinterlassen Sie eine Nachricht.",
     "send": "Nachricht versenden",
     "sendSuccess": "Nachricht erfolgreich versendet",
-    "sendError": "Ein Fehler ist aufgetreten. Versuche es in wenigen Minuten erneut"
+    "sendError": "Ein Fehler ist aufgetreten. Versuche es in wenigen Minuten erneut",
+    "sendRateLimitError": "Zu viele Anfragen. Bitte versuche es später erneut."
   },
   "legalNotice": {
     "title": "Impressum",

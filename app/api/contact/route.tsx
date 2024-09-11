@@ -1,6 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
+const idToRequestCount = new Map<string, number>();
+const rateLimiter = {
+  windowStart: Date.now(),
+  windowSize: 60000, // 60.000 Milliseconds = 1 Minute
+  maxRequests: 5, // 5 Requests per Minute
+};
+
+const limit = (ip: string) => {
+  // Check and update current window
+  const now = Date.now();
+  const isNewWindow = now - rateLimiter.windowStart > rateLimiter.windowSize;
+  if (isNewWindow) {
+    rateLimiter.windowStart = now;
+    idToRequestCount.set(ip, 0);
+  }
+
+  // Check and update current request limits
+  const currentRequestCount = idToRequestCount.get(ip) ?? 0;
+  if (currentRequestCount >= rateLimiter.maxRequests) return true;
+  idToRequestCount.set(ip, currentRequestCount + 1);
+
+  return false;
+};
+
 // Handles POST requests to /api
 export async function POST(request: NextRequest) {
   const username = process.env.SMTP_EMAIL;
@@ -9,7 +33,12 @@ export async function POST(request: NextRequest) {
   const smtpServer = process.env.SMTP_HOST;
   const smtpPort = Number.parseInt(process.env.SMTP_PORT ?? "");
 
-  console.log("dealing with request");
+  const ip = request.ip ?? request.headers.get("X-Forwarded-For") ?? "unknown";
+  const isRateLimited = limit(ip);
+
+  if (isRateLimited)
+    return NextResponse.json({ error: "rate limited" }, { status: 429 });
+
   const formData = await request.formData();
   const name = formData.get("name");
   const email = formData.get("email");

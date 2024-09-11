@@ -12,6 +12,10 @@ import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SectionHeader from "../components/SectionHeader";
 
+interface ResponseError extends Error {
+  status?: number;
+}
+
 type ContactData = {
   name: string;
   email: string;
@@ -63,7 +67,11 @@ export default function Contact({
       });
 
       if (!response.ok) {
-        throw new Error(`response status: ${response.status}`);
+        const err = new Error(
+          `response status: ${response.status}`
+        ) as ResponseError;
+        err.status = response.status;
+        throw err;
       }
       const responseData = await response.json();
       console.log(responseData["message"]);
@@ -71,10 +79,15 @@ export default function Contact({
       reset();
       enqueueSnackbar(dictionary.sendSuccess, { variant: "success" });
     } catch (err) {
-      console.error(err);
-      enqueueSnackbar(dictionary.sendError, {
-        variant: "error",
-      });
+      if (err instanceof Error && (err as ResponseError).status === 429) {
+        enqueueSnackbar(dictionary.sendRateLimitError, {
+          variant: "error",
+        });
+      } else {
+        enqueueSnackbar(dictionary.sendError, {
+          variant: "error",
+        });
+      }
     }
   };
 
