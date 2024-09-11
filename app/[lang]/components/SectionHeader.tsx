@@ -1,6 +1,5 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -36,17 +35,7 @@ export default function AboutMe({ title, id }: Props) {
           },
         }}
       >
-        <Typography
-          variant="h5"
-          sx={
-            {
-              // textDecoration: "underline",
-              // textDecorationColor: theme.palette.secondary.main,
-            }
-          }
-        >
-          {title}
-        </Typography>
+        <Typography variant="h5">{title}</Typography>
       </Divider>
     </Box>
   );

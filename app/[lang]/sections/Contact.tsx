@@ -10,7 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import SectionHeader from "../SectionHeader";
+import SectionHeader from "../components/SectionHeader";
 
 type ContactData = {
   name: string;

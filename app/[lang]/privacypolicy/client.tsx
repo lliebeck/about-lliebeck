@@ -2,7 +2,9 @@
 import { getDictionary } from "@/get-dictionary";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import NextLink from "next/link";
 
 export function Client({
@@ -10,6 +12,11 @@ export function Client({
 }: {
   dictionary: Awaited<ReturnType<typeof getDictionary>>["privacyPolicy"];
 }) {
+  const theme = useTheme();
+  const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const appBarHight = isDownSm ? "56px" : "64px";
+
   const renderParagraph = (content: [string, string][]) => {
     return content.map((value) => (
       <Typography key={value[0]} variant="body1" marginBottom={1}>
@@ -21,7 +28,6 @@ export function Client({
       </Typography>
     ));
   };
-
   const renderResponsibleAuthority = () => {
     return (
       <>
@@ -81,7 +87,7 @@ export function Client({
 
   return (
     <Container
-      sx={{ display: "flex", flexDirection: "column", marginTop: "64px" }}
+      sx={{ display: "flex", flexDirection: "column", marginTop: appBarHight }}
     >
       <Typography variant="h5" marginBottom={1} marginTop={2}>
         <strong>{dictionary.title}</strong>

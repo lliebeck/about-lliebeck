@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { type getDictionary } from "../../../../get-dictionary";
 import * as THREE from "three";
-// @ts-ignore
-import NET from "vanta/dist/vanta.net.min";
+import { type getDictionary } from "../../../get-dictionary";
 import Box from "@mui/material/Box";
-import { PaletteMode, useTheme } from "@mui/material/styles";
 import Container from "@mui/material/Container";
+import { PaletteMode, useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
+// @ts-ignore
+import NET from "vanta/dist/vanta.net.min";
 
 export default function Home({
   dictionary,
@@ -24,10 +24,10 @@ export default function Home({
     ? "h5"
     : "h4";
 
-  const appBarHight = "64px";
-
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  const appBarHight = isDownSm ? "56px" : "64px";
 
   const vantaRef = useRef(null);
 
@@ -96,6 +96,7 @@ export default function Home({
             style={{
               display: "block",
             }}
+            priority
           />
         </Box>
       </Container>

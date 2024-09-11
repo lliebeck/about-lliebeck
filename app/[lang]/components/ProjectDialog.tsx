@@ -1,6 +1,5 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
 import Button from "@mui/material/Button";
@@ -16,28 +15,18 @@ import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
 import NextLink from "next/link";
-import { useParams } from "next/navigation";
+import { ProjectItem } from "../sections/Projects";
 import { technologies } from "../types/technologies.types";
-import { ProjectItem } from "./sections/Projects";
 
 export type Props = {
   project: ProjectItem;
   open: boolean;
   handleClose: () => void;
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["projects"];
 };
 
-export default function ProjectDialog({
-  project,
-  open,
-  handleClose,
-  dictionary,
-}: Props) {
+export default function ProjectDialog({ project, open, handleClose }: Props) {
   const theme = useTheme();
-  const { lang } = useParams();
-
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
   const height = isDownSm ? 200 : 300;
 

@@ -2,11 +2,11 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Locale } from "../../config/i18n-config";
 import { getDictionary } from "../../get-dictionary";
-import AboutMe from "./components/sections/AboutMe";
-import Contact from "./components/sections/Contact";
-import Home from "./components/sections/Home";
-import Projects from "./components/sections/Projects";
-import Skills from "./components/sections/Skills";
+import AboutMe from "./sections/AboutMe";
+import Contact from "./sections/Contact";
+import Home from "./sections/Home";
+import Projects from "./sections/Projects";
+import Skills from "./sections/Skills";
 
 export default async function IndexPage({
   params: { lang },

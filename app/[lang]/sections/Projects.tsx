@@ -10,9 +10,9 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
-import { Technology } from "../../types/technologies.types";
-import ProjectDialog from "../ProjectDialog";
-import SectionHeader from "../SectionHeader";
+import ProjectDialog from "../components/ProjectDialog";
+import SectionHeader from "../components/SectionHeader";
+import { Technology } from "../types/technologies.types";
 
 export type ProjectItem = {
   title: string;
@@ -122,7 +122,6 @@ export default function Projects({
   return (
     <Container>
       <SectionHeader id="projects" title={dictionarySections.projects} />
-      {/* <ImageList variant="quilted" sx={{ width: "100%" }} cols={2} gap={8}> */}
       <ImageList
         sx={{ width: "100%", maxHeight: "calc(100vh - 88px - 90px)" }}
         variant="quilted"
@@ -135,6 +134,7 @@ export default function Projects({
             cols={projectItem.cols || 1}
             rows={projectItem.rows || 1}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               {...srcset(
                 projectItem.img,
@@ -163,7 +163,6 @@ export default function Projects({
       <ProjectDialog
         project={selectedProject}
         open={openDialog}
-        dictionary={dictionary}
         handleClose={handleClose}
       />
     </Container>

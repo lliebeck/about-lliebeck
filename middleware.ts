@@ -36,7 +36,7 @@ export function middleware(request: NextRequest) {
       "/manifest.json",
       "/favicon.ico",
       "/profile_pic_v1.jpg",
-      "/profile_pic_2.jpg",
+      "/about_me_pic_v1.jpg",
       // "/icons/**",
       "/icons/nextjs-icon.png",
       "/icons/react-icon.png",
