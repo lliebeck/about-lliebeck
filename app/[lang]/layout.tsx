@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: "Lukas Liebeck",
-  description: "This is Lukas Liebeck's profile",
+  description: "This is the profile of Lukas Liebeck",
+  keywords: ["lukas", "liebeck", "lukas liebeck", "lliebeck", "portfolio"],
 };
 
 export default async function RootLayout({
