@@ -13,8 +13,8 @@
   },
   "aboutMe": {
     "greetings": "Hello,",
-    "career": "I am Lukas, 29 years old and have recently completed my dual education as a MATSE. Before I discovered my passion for software development, I completed a Bachelor's degree in Applied Geography at RWTH Aachen University. During my apprenticeship at adesso SE in the ITS Core Team (Investment Technology Solutions Core) I was able to gain wide experience with both frontend and backend technologies. A large part of my training was spent with React, NextJS and Typescript, but I also enjoy developing in C#.",
-    "hobbies": "In my free time, I like to experiment with new technologies and develop my own software projects. I am also a sport addict and enjoy spending time in nature."
+    "career": "I'm Lukas, 30 years old and I recently completed my dual study programme. I completed my B.Sc. in Applied Mathematics and Computer Science at the FH Aachen and at the same time successfully mastered my training as a Mathematical-Technical Software Developer (MATSE) at adesso SE. Before I discovered my passion for software development, I completed a Bachelor's degree in Applied Geography at RWTH Aachen University. During my apprenticeship at adesso SE in the ITS Core Team (Investment Technology Solutions Core) I was able to gain wide experience with both frontend and backend technologies. A large part of my training was spent with React, NextJS and Typescript, but I also enjoy developing in C#.",
+    "hobbies": "In my free time, besides software development, I am interested in all kinds of technology. Apart from 3D printing and working with 3D CAD programs, I am currently enthusiastic about home automation with a small home server, home assistant and various small Shelly modules. I am also a sport addict and enjoy spending time in nature."
   },
   "skills": {},
   "footer": {
