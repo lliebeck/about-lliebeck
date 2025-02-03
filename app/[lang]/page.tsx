@@ -7,6 +7,7 @@ import Contact from "./sections/Contact";
 import Home from "./sections/Home";
 import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
+import CV from "./sections/CV";
 
 export default async function IndexPage({
   params,
@@ -32,6 +33,7 @@ export default async function IndexPage({
           dictionary={dictionary.projects}
           dictionarySections={dictionary.appBar}
         />
+        <CV dictionary={dictionary.cv} dictionarySections={dictionary.appBar} />
         <Contact
           dictionary={dictionary.contact}
           dictionarySections={dictionary.appBar}

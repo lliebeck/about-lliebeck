@@ -4,7 +4,8 @@
     "aboutMe": "Über mich",
     "skills": "Fähigkeiten",
     "projects": "Projekte",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "cv": "Lebenslauf"
   },
   "home": {
     "hi": "Hi,",
@@ -17,6 +18,10 @@
     "hobbies": "In meiner Freizeit interessiere ich mich neben der Softwareentwicklung für alle Arten von Technik. Neben dem 3D-Drucken und der Arbeit mit 3D-CAD-Programmen begeistert mich derzeit die Hausautomation mit einem kleinen Homeserver, Home Assistant und verschiedenen kleinen Shelly-Modulen. Außerdem treibe ich viel Sport und verbringe gerne Zeit in der Natur."
   },
   "skills": {},
+  "cv": {
+    "downloadGerman": "Download Lebenslauf (deutsch)",
+    "downloadEnglish": "Download Lebenslauf (englisch)"
+  },
   "footer": {
     "legalNotice": "Impressum",
     "privacyPolicy": "Datenschutz"

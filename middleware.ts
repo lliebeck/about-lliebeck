@@ -35,6 +35,7 @@ export function middleware(request: NextRequest) {
       "/vercel.svg",
       "/manifest.json",
       "/favicon.ico",
+      "/logo.png",
       "/profile_pic_v1.jpg",
       "/about_me_pic_v1.jpg",
       // "/icons/**",
@@ -53,6 +54,8 @@ export function middleware(request: NextRequest) {
       "/projects/battlefield_lobby.png",
       "/projects/trash_tracker.png",
       "/projects/veda_time_tracker.png",
+      "/assets/cv_german.pdf",
+      "/assets/cv_english.pdf",
       // Your other files in `public`
     ].includes(pathname)
   )

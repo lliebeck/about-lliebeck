@@ -4,7 +4,8 @@
     "aboutMe": "About Me",
     "skills": "Skills",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "Curriculum Vitae"
   },
   "home": {
     "hi": "Hi,",
@@ -17,6 +18,10 @@
     "hobbies": "In my free time, besides software development, I am interested in all kinds of technology. Apart from 3D printing and working with 3D CAD programs, I am currently enthusiastic about home automation with a small home server, home assistant and various small Shelly modules. I am also a sport addict and enjoy spending time in nature."
   },
   "skills": {},
+  "cv": {
+    "downloadGerman": "Download CV (german)",
+    "downloadEnglish": "Download CV (english)"
+  },
   "footer": {
     "legalNotice": "Legal Notice",
     "privacyPolicy": "Privacy Policy"
