@@ -9,10 +9,11 @@ import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 
 export default async function IndexPage({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
+  const { lang } = await params;
   const dictionary = await getDictionary(lang);
 
   return (

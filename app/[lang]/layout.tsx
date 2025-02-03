@@ -21,12 +21,13 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }>) {
-  const dictionary = await getDictionary(params.lang);
+  const { lang } = await params;
+  const dictionary = await getDictionary(lang);
 
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body>
         <AppRouterCacheProvider options={{ key: "css" }}>
           <AppThemeProvider>

@@ -33,7 +33,10 @@ export async function POST(request: NextRequest) {
   const smtpServer = process.env.SMTP_HOST;
   const smtpPort = Number.parseInt(process.env.SMTP_PORT ?? "");
 
-  const ip = request.ip ?? request.headers.get("X-Forwarded-For") ?? "unknown";
+  const ip =
+    request.headers.get("x-real-ip") ??
+    request.headers.get("X-Forwarded-For") ??
+    "unknown";
   const isRateLimited = limit(ip);
 
   if (isRateLimited)
