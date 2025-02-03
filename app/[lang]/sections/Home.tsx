@@ -27,7 +27,9 @@ export default function Home({
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
-  const appBarHight = isDownSm ? "56px" : "64px";
+  // const appBarHight = isDownSm ? "0px" : "64px";
+
+  const appBarHight = "64px";
 
   const vantaRef = useRef(null);
 
@@ -43,7 +45,7 @@ export default function Home({
           minHeight: 200.0,
           minWidth: 200.0,
           scale: 1.0,
-          scaleMobile: 1.0,
+          scaleMobile: 1.8,
           points: 12.0,
           maxDistance: 22.0,
           color: theme.palette.secondary.main,
