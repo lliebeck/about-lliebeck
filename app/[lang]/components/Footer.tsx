@@ -46,7 +46,7 @@ export default function Footer({
       <Box>
         <IconButton
           LinkComponent={NextLink}
-          href="https://github.com/DeveloperGandalf"
+          href="https://github.com/lliebeck"
           rel="noopener noreferrer"
           target="_blank"
         >

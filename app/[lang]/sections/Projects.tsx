@@ -69,7 +69,7 @@ export default function Projects({
         Technology.TYPESCRIPT,
         Technology.MUI,
       ],
-      github: "https://github.com/DeveloperGandalf/battlefield-tracker",
+      github: "https://github.com/lliebeck/battlefield-tracker",
       website: "https://mygamelobby.de/",
       rows: 2,
       cols: isDownSm ? 6 : 4,
