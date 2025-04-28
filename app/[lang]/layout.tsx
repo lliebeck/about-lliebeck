@@ -5,6 +5,7 @@ import { i18n, type Locale } from "../../config/i18n-config";
 import { getDictionary } from "../../get-dictionary";
 import { CustomAppBar } from "./components/CustomAppBar";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -29,6 +30,7 @@ export default async function RootLayout({
   return (
     <html lang={lang}>
       <body>
+        <Analytics />
         <AppRouterCacheProvider options={{ key: "css" }}>
           <AppThemeProvider>
             <CustomAppBar dictionary={dictionary.appBar} />
