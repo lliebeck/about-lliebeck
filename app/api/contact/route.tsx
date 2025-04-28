@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-const nodemailer = require("nodemailer");
+import EmailTemplate from "../../[lang]/components/EmailTemplate";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const idToRequestCount = new Map<string, number>();
 const rateLimiter = {
@@ -27,11 +30,8 @@ const limit = (ip: string) => {
 
 // Handles POST requests to /api
 export async function POST(request: NextRequest) {
-  const username = process.env.SMTP_EMAIL;
-  const password = process.env.SMTP_PASSWORD;
-  const myEmail = process.env.MY_EMAIL;
-  const smtpServer = process.env.SMTP_HOST;
-  const smtpPort = Number.parseInt(process.env.SMTP_PORT ?? "");
+  const email_from = process.env.EMAIL_FROM;
+  const email_to = process.env.EMAIL_TO;
 
   const ip =
     request.headers.get("x-real-ip") ??
@@ -47,30 +47,24 @@ export async function POST(request: NextRequest) {
   const email = formData.get("email");
   const message = formData.get("message");
 
-  // create transporter object
-  const transporter = nodemailer.createTransport({
-    host: smtpServer,
-    port: smtpPort,
-    auth: {
-      user: username,
-      pass: password,
-    },
-  });
-
   try {
-    const mail = await transporter.sendMail({
-      from: username,
-      to: myEmail,
-      replyTo: email,
+    const { data, error } = await resend.emails.send({
+      from: `Portfolio <${email_from}>`,
+      to: [`${email_to}`],
       subject: `${name} has contacted you via your portfolio`,
-      html: `
-            <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
-              <h1 style="color: #007BFF;">${name} wants to get in touch with you!</h1>
-              <h3>You can reach ${name} by email at <a href="mailto:${email}" style="color: #007BFF;">${email}</a></h3>
-              <h3>He/She left you the following message:</h3>
-              <p style="background-color: #f9f9f9; padding: 15px; border-left: 5px solid #007BFF; white-space: pre-wrap;">"${message}"</p>
-            </div>`,
+      react: EmailTemplate({
+        name: `${name}`,
+        email: `${email}`,
+        message: `${message}`,
+      }),
     });
+
+    if (error) {
+      return NextResponse.json(
+        { message: "COULD NOT SEND MESSAGE" },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ message: "Success: email was sent" });
   } catch (error) {
