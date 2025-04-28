@@ -1,13 +1,11 @@
 "use client";
 
 import { getDictionary } from "@/get-dictionary";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid2";
-import SectionHeader from "../components/SectionHeader";
-import SkillsItem from "../components/SkillsItem";
-import { technologies } from "../types/technologies.types";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import Link from "next/link";
+import SectionHeader from "../components/SectionHeader";
 
 export default function CV({
   dictionary,
