@@ -33,7 +33,7 @@ export default async function IndexPage({
           dictionary={dictionary.projects}
           dictionarySections={dictionary.appBar}
         />
-        <CV dictionary={dictionary.cv} dictionarySections={dictionary.appBar} />
+        {/* <CV dictionary={dictionary.cv} dictionarySections={dictionary.appBar} /> */}
         <Contact
           dictionary={dictionary.contact}
           dictionarySections={dictionary.appBar}

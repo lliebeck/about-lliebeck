@@ -3,7 +3,7 @@ export type Section =
   | "aboutMe"
   | "skills"
   | "projects"
-  | "cv"
+  // | "cv"
   | "contact";
 
 export const sectionKeys: Section[] = [
@@ -11,6 +11,6 @@ export const sectionKeys: Section[] = [
   "aboutMe",
   "skills",
   "projects",
-  "cv",
+  // "cv",
   "contact",
 ];
