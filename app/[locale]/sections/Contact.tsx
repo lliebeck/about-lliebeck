@@ -1,12 +1,12 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import { useTheme } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 import { enqueueSnackbar, SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
@@ -26,13 +26,7 @@ const emailReg = new RegExp(
   "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
 );
 
-export default function Contact({
-  dictionary,
-  dictionarySections,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["contact"];
-  dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) {
+export default function Contact({}) {
   const { control, handleSubmit, formState, reset } = useForm<ContactData>({
     defaultValues: {
       name: "",
@@ -46,7 +40,8 @@ export default function Contact({
   const theme = useTheme();
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
 
-  useEffect(() => console.log(formState.isValid), [formState.isValid]);
+  const t = useTranslations("contact");
+  const appBarTranslation = useTranslations("appBar");
 
   const onSubmit: SubmitHandler<ContactData> = async (data) => {
     if (!formState.isValid) {
@@ -77,14 +72,14 @@ export default function Contact({
       console.log(responseData["message"]);
 
       reset();
-      enqueueSnackbar(dictionary.sendSuccess, { variant: "success" });
+      enqueueSnackbar(t("sendSuccess"), { variant: "success" });
     } catch (err) {
       if (err instanceof Error && (err as ResponseError).status === 429) {
-        enqueueSnackbar(dictionary.sendRateLimitError, {
+        enqueueSnackbar(t("sendRateLimitError"), {
           variant: "error",
         });
       } else {
-        enqueueSnackbar(dictionary.sendError, {
+        enqueueSnackbar(t("sendError"), {
           variant: "error",
         });
       }
@@ -100,7 +95,7 @@ export default function Contact({
         }}
         autoHideDuration={5000}
       >
-        <SectionHeader id="contact" title={dictionarySections.contact} />
+        <SectionHeader id="contact" title={appBarTranslation("contact")} />
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack
             direction="column"
@@ -114,14 +109,14 @@ export default function Contact({
               rules={{
                 required: {
                   value: true,
-                  message: dictionary.nameRequired,
+                  message: t("nameRequired"),
                 },
               }}
               render={({ field, fieldState: { error } }) => (
                 <TextField
                   {...field}
                   autoComplete="off"
-                  label={dictionary.name}
+                  label={t("name")}
                   color="secondary"
                   error={error !== undefined}
                   helperText={error ? error.message : null}
@@ -136,18 +131,18 @@ export default function Contact({
               rules={{
                 required: {
                   value: true,
-                  message: dictionary.emailRequired,
+                  message: t("emailRequired"),
                 },
                 pattern: {
                   value: emailReg,
-                  message: dictionary.emailIsInvalid,
+                  message: t("emailIsInvalid"),
                 },
               }}
               render={({ field, fieldState: { error } }) => (
                 <TextField
                   {...field}
                   autoComplete="off"
-                  label={dictionary.email}
+                  label={t("email")}
                   color="secondary"
                   type="email"
                   error={error !== undefined}
@@ -162,7 +157,7 @@ export default function Contact({
               rules={{
                 required: {
                   value: true,
-                  message: dictionary.messageRequired,
+                  message: t("messageRequired"),
                 },
               }}
               render={({ field, fieldState: { error } }) => (
@@ -180,7 +175,7 @@ export default function Contact({
               )}
             />
             <Button variant="contained" type="submit" color="secondary">
-              {dictionary.send}
+              {t("send")}
             </Button>
           </Stack>
         </form>

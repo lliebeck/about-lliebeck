@@ -1,6 +1,5 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import InfoIcon from "@mui/icons-material/Info";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
@@ -9,6 +8,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ProjectDialog from "../components/ProjectDialog";
 import SectionHeader from "../components/SectionHeader";
@@ -25,23 +25,20 @@ export type ProjectItem = {
   cols: number;
 };
 
-export default function Projects({
-  dictionary,
-  dictionarySections,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["projects"];
-  dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) {
+export default function Projects({}: {}) {
   const theme = useTheme();
 
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
 
+  const t = useTranslations("projects");
+  const appBarTranslation = useTranslations("appBar");
+
   const projectItems: ProjectItem[] = [
     {
       img: "/projects/admin_shell.png",
-      title: dictionary.adminShell.title,
-      description: dictionary.adminShell.description,
+      title: t("adminShell.title"),
+      description: t("adminShell.description"),
       technologies: [
         Technology.REACT,
         Technology.NEXTJS,
@@ -53,16 +50,16 @@ export default function Projects({
     },
     {
       img: "/projects/trash_tracker.png",
-      title: dictionary.trashTracker.title,
-      description: dictionary.trashTracker.description,
+      title: t("trashTracker.title"),
+      description: t("trashTracker.description"),
       technologies: [Technology.CSHARP, Technology.KOTLIN, Technology.ANDROID],
       rows: isDownSm ? 4 : 3,
       cols: isDownSm ? 6 : 2,
     },
     {
       img: "/projects/battlefield_lobby.png",
-      title: dictionary.myBattlefieldLobby.title,
-      description: dictionary.myBattlefieldLobby.description,
+      title: t("myBattlefieldLobby.title"),
+      description: t("myBattlefieldLobby.description"),
       technologies: [
         Technology.REACT,
         Technology.NEXTJS,
@@ -76,8 +73,8 @@ export default function Projects({
     },
     {
       img: "/projects/veda_time_tracker.png",
-      title: dictionary.timeTracker.title,
-      description: dictionary.timeTracker.description,
+      title: t("timeTracker.title"),
+      description: t("timeTracker.description"),
       technologies: [
         Technology.REACT,
         Technology.ELECTRON,
@@ -121,7 +118,7 @@ export default function Projects({
 
   return (
     <Container>
-      <SectionHeader id="projects" title={dictionarySections.projects} />
+      <SectionHeader id="projects" title={appBarTranslation("projects")} />
       <ImageList
         sx={{ width: "100%", maxHeight: "calc(100vh - 88px - 90px)" }}
         variant="quilted"

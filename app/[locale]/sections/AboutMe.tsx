@@ -1,22 +1,16 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useMemo } from "react";
 import SectionHeader from "../components/SectionHeader";
 
-export default function AboutMe({
-  dictionary,
-  dictionarySections,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["aboutMe"];
-  dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) {
+export default function AboutMe({}) {
   const theme = useTheme();
 
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
@@ -35,9 +29,12 @@ export default function AboutMe({
     return { width: 249, height: 311 };
   }, [isDownSm]);
 
+  const t = useTranslations("aboutMe");
+  const appBarTranslation = useTranslations("appBar");
+
   return (
     <Container>
-      <SectionHeader id="aboutMe" title={dictionarySections.aboutMe} />
+      <SectionHeader id="aboutMe" title={appBarTranslation("aboutMe")} />
       <Box
         sx={{
           display: "flex",
@@ -76,14 +73,14 @@ export default function AboutMe({
         </Box>
         <Box maxWidth={isDownSm ? "100%" : "50%"}>
           <Typography variant="h6" fontFamily={"monospace"}>
-            {dictionary.greetings}
+            {t("greetings")}
           </Typography>
           <Typography
             variant={"body1"}
             fontFamily={"monospace"}
             sx={{ display: "inline-block" }}
           >
-            {dictionary.career}
+            {t("career")}
           </Typography>
           <Typography
             variant={"body1"}
@@ -91,7 +88,7 @@ export default function AboutMe({
             marginTop={0.5}
             sx={{ display: "inline-block" }}
           >
-            {dictionary.hobbies}
+            {t("hobbies")}
           </Typography>
         </Box>
       </Box>

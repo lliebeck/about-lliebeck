@@ -1,6 +1,5 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -10,16 +9,15 @@ import Link from "@mui/material/Link";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { useParams } from "next/navigation";
 
-export default function Footer({
-  dictionary,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["footer"];
-}) {
+export default function Footer({}) {
   const theme = useTheme();
-  const { lang } = useParams();
+  const { locale } = useParams();
+
+  const t = useTranslations("footer");
 
   const lightModeTextColor =
     theme.palette.mode === "light"
@@ -72,20 +70,20 @@ export default function Footer({
       <Box>
         <Link
           marginRight={1}
-          href={`/${lang}/legalnotice`}
+          href={`/${locale}/legalnotice`}
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
         >
-          {dictionary.legalNotice}
+          {t("legalNotice")}
         </Link>
         <Link
-          href={`/${lang}/privacypolicy`}
+          href={`/${locale}/privacypolicy`}
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
         >
-          {dictionary.privacyPolicy}
+          {t("privacyPolicy")}
         </Link>
       </Box>
     </Box>

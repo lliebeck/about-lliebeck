@@ -1,22 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
-import { type getDictionary } from "../../../get-dictionary";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { PaletteMode, useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import * as THREE from "three";
+import { useTranslations } from "next-intl";
 // @ts-ignore
 import NET from "vanta/dist/vanta.net.min";
 
-export default function Home({
-  dictionary,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["home"];
-}) {
+export default function Home() {
   const [vantaEffect, setVantaEffect] = useState(0);
   const theme = useTheme();
   const [prevMode, setPrevMode] = useState<PaletteMode>();
@@ -26,6 +22,8 @@ export default function Home({
 
   const isDownSm = useMediaQuery(theme.breakpoints.down("sm"));
   const isDownMd = useMediaQuery(theme.breakpoints.down("md"));
+
+  const t = useTranslations("home");
 
   // const appBarHight = isDownSm ? "0px" : "64px";
 
@@ -73,13 +71,13 @@ export default function Home({
       >
         <Box margin={isDownMd ? 5 : 0}>
           <Typography variant={typographyVariant} fontFamily={"monospace"}>
-            {dictionary.hi}
+            {t("hi")}
           </Typography>
           <Typography variant={typographyVariant} fontFamily={"monospace"}>
-            {dictionary.self}
+            {t("self")}
           </Typography>
           <Typography variant={typographyVariant} fontFamily={"monospace"}>
-            {dictionary.job}
+            {t("job")}
           </Typography>
         </Box>
         <Box

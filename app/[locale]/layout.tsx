@@ -1,14 +1,17 @@
 import { AppThemeProvider } from "@/config/AppThemeProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { i18n, type Locale } from "../../config/i18n-config";
-import { getDictionary } from "../../get-dictionary";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { i18n } from "../i18n/i18n-config";
+import { routing } from "../i18n/routing";
 import { CustomAppBar } from "./components/CustomAppBar";
 import Footer from "./components/Footer";
-import { Analytics } from "@vercel/analytics/react";
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return i18n.locales.map((locale) => ({ locale: locale }));
 }
 
 export const metadata: Metadata = {
@@ -22,20 +25,27 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
+  params: Promise<{ locale: string }>;
 }>) {
-  const { lang } = await params;
-  const dictionary = await getDictionary(lang as Locale);
+  const { locale } = await params;
+
+  setRequestLocale(locale);
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
-    <html lang={lang}>
+    <html lang={locale}>
       <body>
         <Analytics />
         <AppRouterCacheProvider options={{ key: "css" }}>
           <AppThemeProvider>
-            <CustomAppBar dictionary={dictionary.appBar} />
-            {children}
-            <Footer dictionary={dictionary.footer} />
+            <NextIntlClientProvider>
+              <CustomAppBar />
+              {children}
+              <Footer />
+            </NextIntlClientProvider>
           </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>
