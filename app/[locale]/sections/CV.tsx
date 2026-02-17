@@ -1,22 +1,19 @@
 "use client";
 
-import { getDictionary } from "@/get-dictionary";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import SectionHeader from "../components/SectionHeader";
 
-export default function CV({
-  dictionary,
-  dictionarySections,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["cv"];
-  dictionarySections: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) {
+export default function CV({}) {
+  const appBarTranslation = useTranslations("appBar");
+  const t = useTranslations("cv");
+
   return (
     <Container>
-      <SectionHeader id="cv" title={dictionarySections.cv} />
+      <SectionHeader id="cv" title={appBarTranslation("cv")} />
       <Grid
         container
         columnSpacing={2}
@@ -25,12 +22,12 @@ export default function CV({
       >
         <Link href={"/assets/cv_german.pdf"} download passHref>
           <Button variant="contained" type="submit" color="secondary">
-            {dictionary.downloadGerman}
+            {t("downloadGerman")}
           </Button>
         </Link>
         <Link href={"/assets/cv_english.pdf"} download passHref>
           <Button variant="contained" type="submit" color="secondary">
-            {dictionary.downloadEnglish}
+            {t("downloadEnglish")}
           </Button>
         </Link>
       </Grid>

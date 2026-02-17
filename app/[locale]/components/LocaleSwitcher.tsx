@@ -6,19 +6,19 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
-import { i18n, type Locale } from "../../../config/i18n-config";
+import { i18n, type Locale } from "../../i18n/i18n-config";
 
 export default function LocaleSwitcher() {
   const pathName = usePathname();
   const router = useRouter();
-  const params = useParams<{ lang: "en-us" | "de-de" }>();
+  const params = useParams<{ locale: "en-us" | "de-de" }>();
   const redirectedPathName = (locale: Locale) => {
     if (!pathName) return "/";
     const segments = pathName.split("/");
     segments[1] = locale;
     return segments.join("/");
   };
-  const [country, setCountry] = useState<string>(params.lang ?? "en-us");
+  const [country, setCountry] = useState<string>(params.locale ?? "en-us");
 
   const countryCodeMapper = useCallback((locale: Locale) => {
     switch (locale) {

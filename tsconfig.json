@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/[lang]/components/Home.js"
-, "utils/utils.js"  ],
+    "app/[locale]/components/Home.js",
+    "utils/utils.js"
+  ],
   "exclude": ["node_modules"]
 }

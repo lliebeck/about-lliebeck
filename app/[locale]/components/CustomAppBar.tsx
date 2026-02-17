@@ -16,21 +16,19 @@ import Toolbar from "@mui/material/Toolbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
-import { type getDictionary } from "../../../get-dictionary";
 import { scrollToSection } from "../../../utils/utils.js";
 import { Section, sectionKeys } from "../types/section.types";
 import DarkModeSwitcher from "./DarkModSwitcher";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
-export const CustomAppBar = ({
-  dictionary,
-}: {
-  dictionary: Awaited<ReturnType<typeof getDictionary>>["appBar"];
-}) => {
+export const CustomAppBar = () => {
   const hash = useHash();
   const pathName = usePathname();
   const router = useRouter();
   const section = hash?.replace("#", "");
+
+  const t = useTranslations("appBar");
 
   const index = useMemo(() => {
     const i = sectionKeys.indexOf(section as Section);
@@ -106,7 +104,8 @@ export const CustomAppBar = ({
           <Tab
             key={key}
             value={id}
-            label={dictionary[key]}
+            // label={dictionary[key]}
+            label={t(key)}
             onClick={() => handleTabClick(id)}
           />
         ))}
@@ -128,7 +127,8 @@ export const CustomAppBar = ({
           >
             <ListItemText
               primary="Menu"
-              secondary={dictionary[section as Section]}
+              // secondary={dictionary[section as Section]}
+              secondary={t(section as Section)}
             />
           </ListItemButton>
         </List>
@@ -148,7 +148,8 @@ export const CustomAppBar = ({
               selected={index == sectionKeys.indexOf(section as Section)}
               onClick={(event) => handleMenuItemClick(event, index)}
             >
-              {dictionary[option]}
+              {/* {dictionary[option]} */}
+              {t(option)}
             </MenuItem>
           ))}
         </Menu>
