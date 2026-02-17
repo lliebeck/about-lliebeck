@@ -75,7 +75,14 @@ export default function AboutMe({}) {
           <Typography variant="h6" fontFamily={"monospace"}>
             {t("greetings")}
           </Typography>
-          <Typography
+          {t.rich("bio", {
+            Typography: (chunks) => (
+              <Typography variant="body1" style={{ marginBlock: "0.5em" }}>
+                {chunks}
+              </Typography>
+            ),
+          })}
+          {/* <Typography
             variant={"body1"}
             fontFamily={"monospace"}
             sx={{ display: "inline-block" }}
@@ -89,7 +96,7 @@ export default function AboutMe({}) {
             sx={{ display: "inline-block" }}
           >
             {t("hobbies")}
-          </Typography>
+          </Typography> */}
         </Box>
       </Box>
     </Container>

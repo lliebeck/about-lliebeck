@@ -9,14 +9,15 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import ProjectDialog from "../components/ProjectDialog";
 import SectionHeader from "../components/SectionHeader";
 import { Technology } from "../types/technologies.types";
+import { Link, Typography } from "@mui/material";
 
 export type ProjectItem = {
   title: string;
-  description: string;
+  description: string | ReactNode;
   github?: string;
   website?: string;
   technologies?: Technology[];
@@ -84,6 +85,37 @@ export default function Projects({}: {}) {
       rows: isDownSm ? 2 : 1,
       cols: isDownSm ? 6 : 2,
     },
+    {
+      img: "/projects/redsec_legends.png",
+      title: t("redsecLegends.title"),
+      description: t("redsecLegends.description"),
+      technologies: [
+        Technology.REACT,
+        Technology.TYPESCRIPT,
+        Technology.SHADCN,
+      ],
+      website: "https://redsec-legends.netlify.app/",
+      rows: isDownSm ? 2 : 2,
+      cols: isDownSm ? 6 : 2,
+    },
+    {
+      img: "/projects/keyer_control_panel.png",
+      title: t("keyerControlPanel.title"),
+      description: t.rich("keyerControlPanel.description", {
+        Typography: (chunks) => (
+          <Typography variant="body2" style={{ marginBlock: "0.5em" }}>
+            {chunks}
+          </Typography>
+        ),
+      }),
+      technologies: [
+        Technology.NODEJS,
+        Technology.REACT,
+        Technology.TYPESCRIPT,
+      ],
+      rows: 2,
+      cols: isDownSm ? 6 : 4,
+    },
   ];
 
   const [openDialog, setOpenDialog] = useState(false);
@@ -120,10 +152,14 @@ export default function Projects({}: {}) {
     <Container>
       <SectionHeader id="projects" title={appBarTranslation("projects")} />
       <ImageList
-        sx={{ width: "100%", maxHeight: "calc(100vh - 88px - 90px)" }}
+        sx={{
+          width: "100%",
+          //  maxHeight: "calc(100vh - 88px - 90px)"
+        }}
         variant="quilted"
         cols={6}
         rowHeight={rowHeight}
+        gap={8}
       >
         {projectItems.map((projectItem) => (
           <ImageListItem

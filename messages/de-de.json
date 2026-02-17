@@ -14,8 +14,7 @@
   },
   "aboutMe": {
     "greetings": "Hi,",
-    "career": "ich bin Lukas, 30 Jahre alt und habe vor kurzem mein duales Studium abgeschlossen. Dabei habe ich meinen B.Sc. in Angewandter Mathematik und Informatik an der FH Aachen absolviert und gleichzeitig meine Ausbildung zum Mathematisch-Technischen Softwareentwickler (MATSE) bei der adesso SE erfolgreich gemeistert. Bevor ich meine Leidenschaft für die Softwareentwicklung entdeckte, habe ich einen Bachelor in Angewandter Geographie an der RWTH Aachen absolviert. Während meiner Ausbildung bei der adesso SE im ITS Core Team (Investment Technology Solutions Core) konnte ich umfangreiche Erfahrungen sowohl mit Frontend- als auch mit Backend-Technologien sammeln. Einen großen Teil meiner Ausbildung habe ich mit React, NextJS und Typescript verbracht, wobei ich auch gerne in C# entwickle.",
-    "hobbies": "In meiner Freizeit interessiere ich mich neben der Softwareentwicklung für alle Arten von Technik. Neben dem 3D-Drucken und der Arbeit mit 3D-CAD-Programmen begeistert mich derzeit die Hausautomation mit einem kleinen Homeserver, Home Assistant und verschiedenen kleinen Shelly-Modulen. Außerdem treibe ich viel Sport und verbringe gerne Zeit in der Natur."
+    "bio": "<Typography>ich bin Lukas, 31 Jahre alt und leidenschaftlicher Softwareentwickler und Tech-Enthusiast. Seit dem Abschluss meines dualen Studiums zum Mathematisch-Technischer Softwareentwickler (MATSE) mit dem Bachelor in Angewandter Mathematik und Informatik (B.Sc.), arbeite ich bei der KST Moschkau GmbH, als Softwareentwickler.</Typography><Typography>Mein fachlicher Schwerpunkt liegt im Frontend-Bereich, insbesondere in der Entwicklung moderner Webanwendungen mit React, Next.js und TypeScript. Zusätzlich verfüge ich über Backend-Erfahrung, die ich mir durch Projekte im Studium, private Entwicklungen und im beruflichen Umfeld angeeignet habe. Aktuell arbeite ich zudem an kleinen Mikrocontroller-Projekten, was mir die Möglichkeit gibt, Software nicht nur im Browser, sondern auch näher an der Hardware umzusetzen.</Typography><Typography>In meiner Freizeit dreht sich neben der Softwareentwicklung vieles um Technik. Von Hausautomation mit einem kleinen Homeserver, Home Assistant und verschiedenen Modulen und Schaltern über das Hosten lokaler Services wie paperless-ngx, Tandoor oder Actual bis hin zum 3D-Druck. Außerdem treibe ich viel Sport und verbringe gerne Zeit draußen in der Natur.</Typography>"
   },
   "skills": {},
   "cv": {
@@ -28,7 +27,7 @@
   },
   "projects": {
     "adminShell": {
-      "title": "Admin Shell",
+      "title": "adesso SE - Admin Shell",
       "description": "Die Admin Shell ist das Softwareprojekt, an dem ich während meiner Zeit bei adesso SE am meisten gearbeitet habe. Sie ist das Frontend zur Anzeige und Verwaltung der Daten aus den Diensten Identity Manager, Session Manager und Audittrail. Zum Zeitpunkt meiner Anstellung sollte die in Angular geschriebene Admin Shell komplett neu in React und Next.js gebaut werden. Dabei unterstützte ich die Senior Entwickler und konnte die neue Anwendung mitgestalten."
     },
     "myBattlefieldLobby": {
@@ -42,6 +41,14 @@
     "timeTracker": {
       "title": "Veda - Time Tracker",
       "description": "Die VEDA hat für ihre Zeiterfassung in Jira einen Time Tracker des Tempo Plugins genutzt. Nach dem Update auf eine neue Jira-Version war dieser jedoch nicht mehr kompatibel und daraus ergab sich die Aufgabe unseres Uni-Projekts. Wir haben für die VEDA eine Desktop-App geschrieben, die Plattform unabhängig ist und das Timetracking automatisiert. Die App ermöglicht dem Nutzer sich über Basic Authentifizierung mit seinen Jira Credentials anzumelden, seine Tickets zu durchsuchen und zu filtern, Zeiten für ein ausgewähltes Ticket zu tracken und am Ende automatisiert einen Worklog in Jira zu erstellen."
+    },
+    "keyerControlPanel": {
+      "title": "KST Moschkau GmbH - Keyer Control Panel",
+      "description": "<Typography>Das Keyer Control Panel ist ein von der KST Moschkau GmbH entwickeltes Erweiterungsmodul zur Ergänzung der im Studiobetrieb genutzten Software von Zero Density. Es stellt eine Weboberfläche bereit, über die Mitarbeitende den Key konfigurieren können, der in virtuellen Studios zur Freistellung von Objekten vom Hintergrund (Greenscreen) erforderlich ist. Die freigestellten Objekte lassen sich anschließend in eine virtuelle Umgebung integrieren. Ein bekanntes Anwendungsbeispiel sind Wettermoderatoren, die vor einem grünen Hintergrund stehen, während die Inhalte später digital ergänzt werden.</Typography><Typography>Technisch handelt es sich bei dem Keyer Control Panel um ein Node.js-Modul für den RealityHub. Es greift über WebSocket- und REST-API-Schnittstellen auf die Kernfunktionen des Keyers zu und kapselt diese in einem eigenen Modul, sodass Mitarbeitende nur auf die benötigten Funktionen zugreifen können. Darüber hinaus ermöglicht das Keyer Control Panel die Anbindung eines Hardware-Panels zur komfortablen Einstellung der Werte.</Typography><Typography>Der RealityHub ist Teil von Zero Densitys RealityEngine und bildet die zentrale Schnittstelle zwischen der Unreal Engine und dem realen Studiobetrieb und ist somit essentiell für die Umsetzung eines virtuellen Studios.</Typography>"
+    },
+    "redsecLegends": {
+      "title": "Redsec Legends",
+      "description": "Redsec Legends ist eine von mir entwickelte Website für unsere Freundesgruppe. Sie nutzt die offene REST-API von gametools.network (https://api.gametools.network), um in Echtzeit die aktuellen Statistiken aus dem Battle-Royale-Modus von Battlefield 6 abzurufen. Die abgefragten Daten werden übersichtlich aufbereitet und in Form einer kleinen Rangliste dargestellt, sodass wir jederzeit sehen können, wer gerade die Nase vorn hat."
     }
   },
   "contact": {
