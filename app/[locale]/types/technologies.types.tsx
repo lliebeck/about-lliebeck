@@ -9,6 +9,8 @@ export enum Technology {
   KOTLIN = "kotlin",
   ANDROID = "android",
   MUI = "mui",
+  NODEJS = "nodejs",
+  SHADCN = "shadcn",
 }
 
 type ITechnology = {
@@ -36,4 +38,6 @@ export const technologies: ITechnology[] = [
   },
   { id: Technology.KOTLIN, title: "Kotlin", img: "/icons/kotlin-icon.png" },
   { id: Technology.ANDROID, title: "Android", img: "/icons/android-icon.png" },
+  { id: Technology.NODEJS, title: "Node.js", img: "/icons/node-icon.png" },
+  { id: Technology.SHADCN, title: "shadcn", img: "/icons/shadcn-icon.png" },
 ];

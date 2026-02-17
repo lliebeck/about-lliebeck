@@ -48,13 +48,18 @@ export default function ProjectDialog({ project, open, handleClose }: Props) {
           <Typography gutterBottom variant="h5" component="div">
             {project.title}
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{ color: "text.secondary" }}
-            marginBottom={2}
-          >
-            {project.description}
-          </Typography>
+          {typeof project.description === "string" ? (
+            <Typography
+              variant="body2"
+              sx={{ color: "text.secondary" }}
+              marginBottom={2}
+            >
+              {project.description}
+            </Typography>
+          ) : (
+            <div>{project.description}</div>
+          )}
+
           {project.technologies?.map((id) => {
             const technology = technologies.find((x) => x.id === id);
             if (!technology) return <></>;
