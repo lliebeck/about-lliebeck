@@ -51,8 +51,10 @@ export default function ProjectDialog({ project, open, handleClose }: Props) {
           {typeof project.description === "string" ? (
             <Typography
               variant="body2"
-              sx={{ color: "text.secondary" }}
-              marginBottom={2}
+              sx={{
+                marginBottom: 2,
+                color: "text.secondary",
+              }}
             >
               {project.description}
             </Typography>
@@ -68,8 +70,10 @@ export default function ProjectDialog({ project, open, handleClose }: Props) {
                 key={technology.id}
                 direction="row"
                 spacing={1}
-                marginBottom={1}
-                sx={{ alignItems: "center" }}
+                sx={{
+                  marginBottom: 1,
+                  alignItems: "center",
+                }}
               >
                 <Image
                   src={technology.img}

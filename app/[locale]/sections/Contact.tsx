@@ -100,8 +100,10 @@ export default function Contact({}) {
           <Stack
             direction="column"
             spacing={2}
-            paddingLeft={isDownSm ? 0 : "25%"}
-            paddingRight={isDownSm ? 0 : "25%"}
+            sx={{
+              paddingLeft: isDownSm ? 0 : "25%",
+              paddingRight: isDownSm ? 0 : "25%",
+            }}
           >
             <Controller
               name="name"

@@ -18,7 +18,11 @@ export default async function IndexPage({
   setRequestLocale(locale);
 
   return (
-    <Box marginTop="64px">
+    <Box
+      sx={{
+        marginTop: "64px",
+      }}
+    >
       <Home />
       <Container>
         <AboutMe />

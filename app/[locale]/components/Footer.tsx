@@ -69,11 +69,13 @@ export default function Footer({}) {
       </Box>
       <Box>
         <Link
-          marginRight={1}
           href={`/${locale}/legalnotice`}
           component={NextLink}
           variant="body1"
           color={lightModeTextColor}
+          sx={{
+            marginRight: 1,
+          }}
         >
           {t("legalNotice")}
         </Link>

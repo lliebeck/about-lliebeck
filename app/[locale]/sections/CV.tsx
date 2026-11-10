@@ -18,7 +18,9 @@ export default function CV({}) {
         container
         columnSpacing={2}
         rowSpacing={1}
-        justifyContent={"center"}
+        sx={{
+          justifyContent: "center",
+        }}
       >
         <Link href={"/assets/cv_german.pdf"} download passHref>
           <Button variant="contained" type="submit" color="secondary">

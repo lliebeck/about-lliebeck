@@ -72,7 +72,13 @@ export function Client({}) {
     <Container
       sx={{ display: "flex", flexDirection: "column", marginTop: appBarHight }}
     >
-      <Typography variant="h6" marginBottom={1} marginTop={2}>
+      <Typography
+        variant="h6"
+        sx={{
+          marginBottom: 1,
+          marginTop: 2,
+        }}
+      >
         {t("title")}
       </Typography>
       {supplier.map((value) => (
@@ -80,21 +86,44 @@ export function Client({}) {
           {value}
         </Typography>
       ))}
-      <Typography variant="h6" marginBottom={1} marginTop={2}>
+      <Typography
+        variant="h6"
+        sx={{
+          marginBottom: 1,
+          marginTop: 2,
+        }}
+      >
         {t("contact.title")}
       </Typography>
       <Typography variant="body1">{t("contact.phone")}</Typography>
       <Typography variant="body1">{t("contact.email")}</Typography>
-      <Typography variant="h6" marginBottom={1} marginTop={2}>
+      <Typography
+        variant="h6"
+        sx={{
+          marginBottom: 1,
+          marginTop: 2,
+        }}
+      >
         {disclaimer.title}
       </Typography>
       {disclaimer.data.map((item, index) => (
         <div key={index}>
-          <Typography variant="body1" marginBottom={1}>
+          <Typography
+            variant="body1"
+            sx={{
+              marginBottom: 1,
+            }}
+          >
             <strong style={{ marginTop: "8px" }}>{item.title}</strong>
           </Typography>
           {item.paragraphs.map((paragraph, index) => (
-            <Typography key={index} variant="body1" marginBottom={1}>
+            <Typography
+              key={index}
+              variant="body1"
+              sx={{
+                marginBottom: 1,
+              }}
+            >
               {paragraph}
             </Typography>
           ))}

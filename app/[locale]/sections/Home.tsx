@@ -69,14 +69,33 @@ export default function Home() {
           flexDirection: isDownSm ? "column-reverse" : "row",
         }}
       >
-        <Box margin={isDownMd ? 5 : 0}>
-          <Typography variant={typographyVariant} fontFamily={"monospace"}>
+        <Box
+          sx={{
+            margin: isDownMd ? 5 : 0,
+          }}
+        >
+          <Typography
+            variant={typographyVariant}
+            sx={{
+              fontFamily: "monospace",
+            }}
+          >
             {t("hi")}
           </Typography>
-          <Typography variant={typographyVariant} fontFamily={"monospace"}>
+          <Typography
+            variant={typographyVariant}
+            sx={{
+              fontFamily: "monospace",
+            }}
+          >
             {t("self")}
           </Typography>
-          <Typography variant={typographyVariant} fontFamily={"monospace"}>
+          <Typography
+            variant={typographyVariant}
+            sx={{
+              fontFamily: "monospace",
+            }}
+          >
             {t("job")}
           </Typography>
         </Box>
