@@ -93,12 +93,14 @@ export const CustomAppBar = () => {
     return (
       <Tabs
         textColor="inherit"
-        TabIndicatorProps={{
-          style: {
-            backgroundColor: theme.palette.secondary.main,
+        value={index}
+        slotProps={{
+          indicator: {
+            style: {
+              backgroundColor: theme.palette.secondary.main,
+            },
           },
         }}
-        value={index}
       >
         {sectionKeys.map((key, id) => (
           <Tab
@@ -128,7 +130,7 @@ export const CustomAppBar = () => {
             <ListItemText
               primary="Menu"
               // secondary={dictionary[section as Section]}
-              secondary={t(section as Section)}
+              secondary={t(sectionKeys[index])}
             />
           </ListItemButton>
         </List>
@@ -137,9 +139,11 @@ export const CustomAppBar = () => {
           anchorEl={anchorEl}
           open={open}
           onClose={handleMenuClose}
-          MenuListProps={{
-            "aria-labelledby": "lock-button",
-            role: "listbox",
+          slotProps={{
+            list: {
+              "aria-labelledby": "lock-button",
+              role: "listbox",
+            },
           }}
         >
           {sectionKeys.map((option, index) => (

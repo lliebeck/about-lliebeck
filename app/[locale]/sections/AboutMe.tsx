@@ -44,8 +44,8 @@ export default function AboutMe({}) {
         }}
       >
         <Box
-          width={isDownSm ? "100%" : "50%"}
           sx={{
+            width: isDownSm ? "100%" : "50%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -71,8 +71,17 @@ export default function AboutMe({}) {
             />
           </Box>
         </Box>
-        <Box maxWidth={isDownSm ? "100%" : "50%"}>
-          <Typography variant="h6" fontFamily={"monospace"}>
+        <Box
+          sx={{
+            maxWidth: isDownSm ? "100%" : "50%",
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              fontFamily: "monospace",
+            }}
+          >
             {t("greetings")}
           </Typography>
           {t.rich("bio", {

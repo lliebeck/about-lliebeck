@@ -29,10 +29,20 @@ export function Client({}) {
 
     return items.map((item, index) => (
       <div key={index}>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           <strong style={{ marginTop: "8px" }}>{item.title}</strong>
         </Typography>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           {item.paragraph}
         </Typography>
       </div>
@@ -51,11 +61,22 @@ export function Client({}) {
 
     return (
       <>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           <strong>{t("responsibleAuthority.title")}</strong>
         </Typography>
         {paragraphs.map((paragraph, index) => (
-          <Typography key={index} variant="body1" marginBottom={1}>
+          <Typography
+            key={index}
+            variant="body1"
+            sx={{
+              marginBottom: 1,
+            }}
+          >
             {paragraph}
           </Typography>
         ))}
@@ -76,10 +97,20 @@ export function Client({}) {
 
     return (
       <>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           <strong>{t("logs.title")}</strong>
         </Typography>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           {t("logs.paragraph1")}
         </Typography>
         <ul>
@@ -88,15 +119,23 @@ export function Client({}) {
               <Typography
                 key={keyPoint}
                 variant="body1"
-                marginTop={1}
-                marginBottom={1}
+                sx={{
+                  marginTop: 1,
+                  marginBottom: 1,
+                }}
               >
                 {keyPoint}
               </Typography>
             </li>
           ))}
         </ul>
-        <Typography variant="body1" marginTop={1} marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginTop: 1,
+            marginBottom: 1,
+          }}
+        >
           {t("logs.paragraph2")}
         </Typography>
       </>
@@ -112,11 +151,22 @@ export function Client({}) {
 
     return (
       <>
-        <Typography variant="body1" marginBottom={1}>
+        <Typography
+          variant="body1"
+          sx={{
+            marginBottom: 1,
+          }}
+        >
           <strong style={{ marginTop: "8px" }}>{t("contactForm.title")}</strong>
         </Typography>
         {paragraphs.map((paragraph, index) => (
-          <Typography key={index} variant="body1" marginBottom={1}>
+          <Typography
+            key={index}
+            variant="body1"
+            sx={{
+              marginBottom: 1,
+            }}
+          >
             {paragraph}
           </Typography>
         ))}
@@ -128,10 +178,21 @@ export function Client({}) {
     <Container
       sx={{ display: "flex", flexDirection: "column", marginTop: appBarHight }}
     >
-      <Typography variant="h5" marginBottom={1} marginTop={2}>
+      <Typography
+        variant="h5"
+        sx={{
+          marginBottom: 1,
+          marginTop: 2,
+        }}
+      >
         <strong>{t("title")}</strong>
       </Typography>
-      <Typography variant="h6" marginBottom={1}>
+      <Typography
+        variant="h6"
+        sx={{
+          marginBottom: 1,
+        }}
+      >
         <strong>{t("subtitle")}</strong>
       </Typography>
       {renderResponsibleAuthority()}
